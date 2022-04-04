@@ -62,7 +62,7 @@ function App() {
             </p>
             <div className="flex flex-wrap gap-2 mt-10">
               <button
-                onClick={() => window.open("https://github.com/hikaaam")}
+                onClick={() => window.location.assign("https://github.com/hikaaam")}
                 className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
                 cursor-pointer hover:shadow-cyan-300"
               >
@@ -73,7 +73,7 @@ function App() {
                 />
               </button>
               <button
-                onClick={() => window.open("https://linkedin.com/in/ilyas-a-97b03a162")}
+                onClick={() => window.location.assign("https://linkedin.com/in/ilyas-a-97b03a162")}
                 className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
                 cursor-pointer hover:shadow-cyan-300"
               >
