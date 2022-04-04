@@ -1,6 +1,11 @@
-import React, { ReactNode, useEffect, useState } from "react";
-import { NavBar } from "./Components";
-import { IoCodeSlashOutline, IoLogoReact, IoLogoGithub } from "react-icons/io5";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
+import { NavBar, PortofolioCard, TechCard } from "./Components";
+import {
+  IoCodeSlashOutline,
+  IoLogoReact,
+  IoLogoGithub,
+  IoLogoLinkedin,
+} from "react-icons/io5";
 import {
   SiGraphql,
   SiJavascript,
@@ -12,7 +17,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { Juber } from "./assets";
+import { FuxionSpark, Juber, Pavel, Sipdeh } from "./assets";
 
 const colorCycles = [
   "rgb(103 232 249)", //cyan
@@ -22,57 +27,21 @@ const colorCycles = [
   "rgb(216 180 254)", //purple
 ];
 
-const TechCard = ({
-  title,
-  children,
-}: {
-  title: string;
-  children: ReactNode;
-}) => {
-  return (
-    <div
-      className="flex flex-col bg-white shadow-md p-2 lg:p-4 md:p-4 flex-1 min-w-[30%]
-    lg:min-w-[22%]
-     items-center justify-center rounded-md max-w-[30%] lg:max-w-[25%]"
-    >
-      <div className="max-w-[80%] lg:max-w-[60%] md:max-w-[60%]">
-        {children}
-      </div>
-      <h3
-        className="capitalize lg:mt-5 md:mt-5 hidden lg:block md:block
-       font-bold font-mono text-[0.5rem] lg:text-lg text-center"
-      >
-        {title}
-      </h3>
-    </div>
-  );
-};
-
-const PortofolioCard = () => {
-  return (
-    <div
-      className="flex flex-col bg-white shadow-md p-2 lg:p-4 md:p-4 flex-1 
-    items-center justify-center rounded-md min-w-[60%] lg:min-w-[30%] md:min-w-[40%]"
-    >
-      <img src={Juber} className="min-w-0 cursor-pointer hover:scale-110"  onClick={()=>{window.open(Juber)}} />
-      <h3
-        className="capitalize mt:5
-        font-bold  text-base lg:text-lg text-center"
-      >
-        Juber Super APP
-      </h3>
-      <p className="text-center p-2 text-base">An About bla bla bla asdsaldjasodnaosn</p>
-    </div>
-  );
-};
-
 function App() {
   const [active, setActive] = useState(0);
+  const [codeHover, setCodeHover] = useState(false);
 
   const colorNext = () => {
     const next = colorCycles.length - 1 === active ? 0 : active + 1;
     setActive(next);
   };
+
+  useEffect(() => {
+    if (codeHover) {
+      const interval = setInterval(colorNext, 500);
+      return () => clearInterval(interval);
+    }
+  }, [colorNext]);
 
   return (
     <body className="flex flex-col scroll-smooth">
@@ -91,15 +60,41 @@ function App() {
               Software Engineer from Indonesia, I make Mobile Apps, Backend and
               other Magic Stuffs ✨
             </p>
-            <button
-              className="bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
-              mt-10 cursor-pointer hover:shadow-cyan-300"
-            >
-              Checkout My GitHub{" "}
-              <IoLogoGithub className="inline-block ml-2 mb-1" size={"2rem"} />
-            </button>
+            <div className="flex flex-wrap gap-2 mt-10">
+              <button
+                onClick={() => window.open("https://github.com/hikaaam")}
+                className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
+                cursor-pointer hover:shadow-cyan-300"
+              >
+                GitHub{" "}
+                <IoLogoGithub
+                  className="inline-block ml-2 mb-1 group-hover:animate-bounce"
+                  size={"2rem"}
+                />
+              </button>
+              <button
+                onClick={() => window.open("https://linkedin.com/in/ilyas-a-97b03a162")}
+                className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
+                cursor-pointer hover:shadow-cyan-300"
+              >
+                LinkedIn{" "}
+                <IoLogoLinkedin
+                  className="text-blue-700 inline-block ml-2 mb-1 group-hover:animate-bounce"
+                  size={"2rem"}
+                />
+              </button>
+            </div>
           </div>
-          <div className="flex flex-col flex-1 items-center justify-center">
+          <div
+            onMouseEnter={() =>
+              setCodeHover(() => {
+                colorNext();
+                return true;
+              })
+            }
+            onMouseLeave={() => setCodeHover(false)}
+            className="flex flex-col flex-1 items-center justify-center"
+          >
             <div className="w-40 lg:w-64 md:w-64 cursor-pointer">
               <IoCodeSlashOutline
                 size={"100%"}
@@ -175,20 +170,35 @@ function App() {
             }
           />
         </div>
-      </div>
-      <div className="flex flex-col flex-1 bg-white  lg:px-32 p-10 md:px-24 min-h-screen">
-        <h1 className="text-black font-bold md:text-4xl lg:text-4xl text-3xl text-center">
-          Portofolio
-        </h1>
-        <p className="text-black  text-lg ls:text-2xl md:text-2xl text-center mt-5 max-w-[60ch] self-center">
-          Some of the apps that I've worked on.
-        </p>
-        <div className="flex flex-row justify-center px-10 lg:px-32 items-center gap-2 lg:gap-6 md:gap-4 mt-10 flex-wrap">
-          <PortofolioCard />
-          <PortofolioCard />
-          <PortofolioCard />
-          <PortofolioCard />
-          <PortofolioCard />
+        <div className="flex flex-col flex-1 bg-white  lg:px-32 p-10 md:px-24">
+          <h1 className="text-black font-bold md:text-4xl lg:text-4xl text-3xl text-center">
+            Portofolio
+          </h1>
+          <p className="text-black  text-lg ls:text-2xl md:text-2xl text-center mt-5 max-w-[60ch] self-center">
+            Some of the apps that I've worked on.
+          </p>
+          <div className="flex flex-row justify-center px-10 lg:px-32 items-center gap-2 lg:gap-6 md:gap-4 mt-10 flex-wrap">
+            <PortofolioCard
+              title="Juber SuperApp"
+              image={Juber}
+              about="Juber SuperApp is an E-Commerce app that have a lots of feature like payment, order food, order taxis, or buy tickets."
+            />
+            <PortofolioCard
+              title="Sipdeh"
+              image={Sipdeh}
+              about="Sistem informasi produk hukum daerah (SIPDEH) is an app to look up on local Indonesian's law."
+            />
+            <PortofolioCard
+              title="Pavel ID"
+              image={Pavel}
+              about="an app to order shoe cleaning services from pavel ID."
+            />
+            <PortofolioCard
+              title="Fuxion Spark"
+              image={FuxionSpark}
+              about="Fuxion Spark is a gigs provider apps for talent to bid a job, or for searching talent that fit your job."
+            />
+          </div>
         </div>
       </div>
     </body>
