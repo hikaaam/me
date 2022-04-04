@@ -170,7 +170,7 @@ function App() {
             }
           />
         </div>
-        <div className="flex flex-col flex-1 bg-white  lg:px-32 p-10 md:px-24">
+        <div className="flex flex-col flex-1 bg-white mt-2  lg:px-32 p-10 md:px-24">
           <h1 className="text-black font-bold md:text-4xl lg:text-4xl text-3xl text-center">
             Portofolio
           </h1>
