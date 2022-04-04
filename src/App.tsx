@@ -61,28 +61,31 @@ function App() {
               other Magic Stuffs ✨
             </p>
             <div className="flex flex-wrap gap-2 mt-10">
-              <button
-                onClick={() => window.location.assign("https://github.com/hikaaam")}
-                className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
+              <a href="https://github.com/hikaaam">
+                <button
+                  className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
                 cursor-pointer hover:shadow-cyan-300"
-              >
-                GitHub{" "}
-                <IoLogoGithub
-                  className="inline-block ml-2 mb-1 group-hover:animate-bounce"
-                  size={"2rem"}
-                />
-              </button>
-              <button
-                onClick={() => window.location.assign("https://linkedin.com/in/ilyas-a-97b03a162")}
-                className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
+                >
+                  GitHub{" "}
+                  <IoLogoGithub
+                    className="inline-block ml-2 mb-1 group-hover:animate-bounce"
+                    size={"2rem"}
+                  />
+                </button>
+              </a>
+              \
+              <a href="https://linkedin.com/in/ilyas-a-97b03a162">
+                <button
+                  className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
                 cursor-pointer hover:shadow-cyan-300"
-              >
-                LinkedIn{" "}
-                <IoLogoLinkedin
-                  className="text-blue-700 inline-block ml-2 mb-1 group-hover:animate-bounce"
-                  size={"2rem"}
-                />
-              </button>
+                >
+                  LinkedIn{" "}
+                  <IoLogoLinkedin
+                    className="text-blue-700 inline-block ml-2 mb-1 group-hover:animate-bounce"
+                    size={"2rem"}
+                  />
+                </button>
+              </a>
             </div>
           </div>
           <div
