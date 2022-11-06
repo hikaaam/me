@@ -20,6 +20,7 @@ const PortofolioCard = ({
         onClick={() => {
           window.open(image);
         }}
+        loading="lazy"
       />
       <h3
         className="capitalize mt:5
@@ -27,7 +28,9 @@ const PortofolioCard = ({
       >
         {title}
       </h3>
-      <p className="text-center p-2 text-base hidden md:hidden lg:block">{about}</p>
+      <p className="text-center p-2 text-base hidden md:hidden lg:block">
+        {about}
+      </p>
     </div>
   );
 };

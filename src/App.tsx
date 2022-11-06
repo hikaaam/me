@@ -62,7 +62,9 @@ function App() {
             </p>
             <div className="flex flex-wrap gap-2 mt-10">
               <button
-                onClick={() => window.location.assign("https://github.com/hikaaam")}
+                onClick={() =>
+                  window.location.assign("https://github.com/hikaaam")
+                }
                 className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
                 cursor-pointer hover:shadow-cyan-300"
               >
@@ -73,7 +75,11 @@ function App() {
                 />
               </button>
               <button
-                onClick={() => window.location.assign("https://linkedin.com/in/ilyas-a-97b03a162")}
+                onClick={() =>
+                  window.location.assign(
+                    "https://linkedin.com/in/ilyas-a-97b03a162"
+                  )
+                }
                 className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
                 cursor-pointer hover:shadow-cyan-300"
               >
@@ -102,9 +108,9 @@ function App() {
                 onClick={colorNext}
               />
             </div>
-            <h1 className="text-white font-mono text-2xl text-center">
-              {`>`}Programming Is My Passion{" "}
-              <span style={{ color: colorCycles[active] }}>❤</span>
+            <h1 className="text-white font-mono text-xl text-center w-[80%]">
+              {">"} I have 2 years of experience on Mobile Development, and 1
+              years of experience on Backend Development.
             </h1>
           </div>
         </div>
