@@ -44,7 +44,7 @@ function App() {
   }, [colorNext]);
 
   return (
-    <body className="flex flex-col scroll-smooth">
+    <body className="flex flex-col scroll-smooth bg-slate-900">
       <div className="lg:px-32 px-10 md:px-24">
         {/* <NavBar /> */}
 
