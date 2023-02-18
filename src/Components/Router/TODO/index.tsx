@@ -20,6 +20,7 @@ const main = () => {
           text,
         },
       ];
+      setInput("");
       return [...newTodo];
     });
   };
@@ -52,6 +53,7 @@ const main = () => {
               const text = evt.target.value;
               setInput(text);
             }}
+            value={input}
           />
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-4"
