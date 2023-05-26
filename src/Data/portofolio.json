@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Juber SuperApp",
+        "image": "Juber",
+        "about": "Juber SuperApp is an E-Commerce app that have a lots of feature like payment, order food, order taxis, or buy tickets."
+    },
+    {
+        "title": "Sipdeh",
+        "image": "Sipdeh",
+        "about": "Sistem informasi produk hukum daerah (SIPDEH) is an app to look up on local Indonesian's law."
+    },
+    {
+        "title": "Pavel ID",
+        "image": "Pavel",
+        "about": "an app to order shoe cleaning services from pavel ID."
+    },
+    {
+        "title": "Fuxion Spark",
+        "image": "FuxionSpark",
+        "about": "Fuxion Spark is a gigs provider apps for talent to bid a job, or for searching talent that fit your job."
+    },
+    {
+        "title": "MAE by Maybank2U",
+        "image": "mae",
+        "about": "MAE is an e-Wallet issued by Maybank and its authorized manager, Maybank Islamic based on Shariah contract of Wakalah (agency), which allows customers to open a Maybank e-Wallet account instantly."
+    },
+    {
+        "title": "Maybank2u Biz",
+        "image": "m2ubiz",
+        "about": "A mobile business banking solution with the all-new Maybank2u Biz app. A simpler, smarter and more secure business banking app so you can easily manage your business on the go."
+    }
+]

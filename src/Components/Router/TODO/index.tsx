@@ -12,6 +12,7 @@ const main = () => {
   const [input, setInput] = useState("");
 
   const addTodo = (text: string) => {
+    setInput("");
     setTodos((prev) => {
       const newTodo: ITodo[] = [
         ...prev,
@@ -20,7 +21,6 @@ const main = () => {
           text,
         },
       ];
-      setInput("");
       return [...newTodo];
     });
   };

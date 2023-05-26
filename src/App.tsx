@@ -17,7 +17,17 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import { FuxionSpark, Juber, Pavel, Sipdeh } from "./assets";
+import porfolioData from "./Data/portofolio.json";
+import ImageKeys from "./Data/ImageKeys";
+//@ts-ignore
+import ImgsViewer from "react-images-viewer";
+
+
+const images = porfolioData.map(({ image, title }) => ({
+  //@ts-ignore
+  src: ImageKeys[image],
+  caption: title,
+}));
 
 const colorCycles = [
   "rgb(103 232 249)", //cyan
@@ -30,6 +40,8 @@ const colorCycles = [
 function App() {
   const [active, setActive] = useState(0);
   const [codeHover, setCodeHover] = useState(false);
+  const [activeImage, setActiveImage] = useState(0);
+  const [view, setView] = useState(false);
 
   const colorNext = () => {
     const next = colorCycles.length - 1 === active ? 0 : active + 1;
@@ -115,7 +127,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col flex-1 bg-white lg:px-32 p-10 md:px-24 min-h-screen">
+      <div className="flex flex-col flex-1 bg-white lg:px-32 p-10 md:px-10 min-h-screen">
         <h1 className="text-black font-bold md:text-4xl lg:text-4xl text-3xl text-center">
           My Technology Stack
         </h1>
@@ -132,7 +144,7 @@ function App() {
           <span className="font-bold"> - Elon Musk</span>
         </blockquote>
 
-        <div className="flex flex-row justify-center px-10 lg:px-32 items-center gap-2 lg:gap-6 md:gap-4 mt-10 flex-wrap">
+        <div className="flex flex-row justify-center px-1 lg:px-32 items-center gap-2 lg:gap-6 md:gap-4 mt-10 flex-wrap">
           <TechCard
             title="TypeScript"
             children={<SiTypescript className="text-blue-900" size={"100%"} />}
@@ -176,35 +188,55 @@ function App() {
             }
           />
         </div>
-        <div className="flex flex-col flex-1 bg-white mt-2  lg:px-32 p-10 md:px-24">
+        <div className="flex flex-col flex-1 bg-white mt-10  lg:px-32 p-1 md:px-24">
           <h1 className="text-black font-bold md:text-4xl lg:text-4xl text-3xl text-center">
             Portofolio
           </h1>
           <p className="text-black  text-lg ls:text-2xl md:text-2xl text-center mt-5 max-w-[60ch] self-center">
             Some of the apps that I've worked on.
           </p>
-          <div className="flex flex-row justify-center px-10 lg:px-32 items-center gap-2 lg:gap-6 md:gap-4 mt-10 flex-wrap">
-            <PortofolioCard
-              title="Juber SuperApp"
-              image={Juber}
-              about="Juber SuperApp is an E-Commerce app that have a lots of feature like payment, order food, order taxis, or buy tickets."
-            />
-            <PortofolioCard
-              title="Sipdeh"
-              image={Sipdeh}
-              about="Sistem informasi produk hukum daerah (SIPDEH) is an app to look up on local Indonesian's law."
-            />
-            <PortofolioCard
-              title="Pavel ID"
-              image={Pavel}
-              about="an app to order shoe cleaning services from pavel ID."
-            />
-            <PortofolioCard
-              title="Fuxion Spark"
-              image={FuxionSpark}
-              about="Fuxion Spark is a gigs provider apps for talent to bid a job, or for searching talent that fit your job."
-            />
+
+          <div className="flex flex-row justify-center px-1 md:px-2 lg:px-32 items-center gap-2 lg:gap-6 md:gap-4 mt-10 flex-wrap">
+            {porfolioData.map(({ about, image, title }, index) => {
+              //@ts-ignore
+              const getImage = ImageKeys[image];
+              return (
+                <PortofolioCard
+                  title={title}
+                  image={getImage}
+                  about={about}
+                  onClick={() => {
+                    setActiveImage(index);
+                    setView(true);
+                  }}
+                />
+              );
+            })}
           </div>
+
+          <ImgsViewer
+            imgs={images}
+            currImg={activeImage}
+            isOpen={view}
+            onClickPrev={() => {
+              const indexLength = porfolioData.length - 1;
+              const prevImage =
+                activeImage <= 0 ? indexLength : activeImage - 1;
+              setActiveImage(prevImage);
+            }}
+            onClickNext={() => {
+              const indexLength = porfolioData.length - 1;
+              const nextImage =
+                activeImage >= indexLength ? 0 : activeImage + 1;
+              setActiveImage(nextImage);
+            }}
+            onClose={() => setView(false)}
+            preloadNextImg
+            showImgCount
+            backdropCloseable
+            showThumbnails
+            onClickThumbnail={(i:number) => setActiveImage(i)}
+          />
         </div>
       </div>
     </body>
