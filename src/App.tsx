@@ -89,7 +89,7 @@ function App() {
               <button
                 onClick={() =>
                   window.location.assign(
-                    "https://linkedin.com/in/ilyas-a-97b03a162"
+                    "https://www.linkedin.com/in/ilyas-abdurahman-yusuf/"
                   )
                 }
                 className="group bg-white shadow-md text-black px-5 py-2 rounded-md font-bold text-lg
@@ -121,7 +121,7 @@ function App() {
               />
             </div>
             <h1 className="text-white font-mono text-xl text-center w-[80%]">
-              {">"} I have 2 years of experience on Mobile Development, and 1
+              {">"} I have 3 years of experience on Mobile Development, and 1
               years of experience on Backend Development.
             </h1>
           </div>
